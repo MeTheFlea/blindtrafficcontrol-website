@@ -1,0 +1,84 @@
+{% include header.html %}
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+  	auto: 'true',
+  	pause: '3000'
+  });
+});
+</script>
+
+<div class="container-fluid bg" style="padding-top: 10px;">
+	<div class="row" style="background-color: #353d4b; height: 80px; width: 100%; position: absolute; top: 70px;">
+	</div>
+	<div class="container">
+		<a href="/"><img class="mainImage" src="/images/Blind_Logo.png" alt="Main Logo" /></a>
+
+		<a title="Email us!" href="mailto:{{ site.email }}"><i class="fa fa-envelope fa-4x" style="float: right; padding-top: 70px; padding-bottom: 10px;"></i></a>
+	</div>
+
+
+	<div class="container card" style="margin-top: 10px; padding-top: 10px;">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3 style="margin-top: 0px;">Hello traveler!</h3> <p>Welcome to Blind Traffic Control! Set in a beautiful geometrical art world, the game offers a unique combination of gesture based gameplay and virtual reality.  Become the traffic warden of a T-Junction and command the busy crossroad with the aid of a realistic simulation of 3D audio. 
+				<br>
+				<br>
+				In Blind Traffic Control, cars will approach from 3 different directions, and being the only warden in the area you will have to stop or let lanes pass by gesturing with your arms. Be fast and sharp and you will see yourself scoring high in our high score table, take too long and you will experience colorful language from all over the world!
+				<br>
+				<br>
+				Fancy a challenge or are you simply curious to “see” how you will fare in a scenario with the sun in your eyes? The game offers a more challenging mode where you can solely rely on sound and self-coordination in order to prevent chaos and aggravated drivers.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container card">
+		<ul class="bxslider" style="margin-top: 20px;">
+	 	{% for i in (1..page.imgCount) %}
+	  	<li><img class="sliderImage" src="/images/{{ i }}.png" alt="Image {{ i }}"/></li>
+	  	{% endfor %}
+		</ul>
+	</div>
+
+	<div class="container card">
+		<h2>Technologies</h2>
+		<div class="row">
+			<div class="col-sm-4">
+				<a href="https://www.microsoft.com/en-us/kinectforwindows/"><img class="img-responsive" src="/images/Kinect_Logo.png" alt="Kinect Logo" style=" margin: 0 auto;" /></a>
+			</div>
+			<div class="col-sm-4">
+				<a href="https://www.oculus.com/"><img class="img-responsive" src="/images/Oculus_Logo.png" alt="Oculus Logo" style=" margin: 0 auto;"/></a>
+			</div>
+			<div class="col-sm-4">
+				<a href="https://unity3d.com/"><img class="img-responsive" src="/images/Unity_Logo.png" alt="Unity3D Logo" style=" margin: 0 auto;"/></a>
+			</div>
+		</div>
+		<br>
+		
+	</div>
+
+	<div class="container card">
+		<h2>Team</h2>
+		<div class="row" style="margin-top: -20px;">
+		{% for credit in page.Credits %}
+			<div class="col-sm-6">
+				<h3>{{ credit[0] }}</h3>
+				<ul>
+					{% for person in credit[1] %}
+						<li><b>{{ person[0] }}</b> <small>{{ person[1][0] }}</small><br>
+						<a href="{{ person[1][1] }}" target="{{ person[0] }}"><small>Portfolio</small></a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+
+	<br>
+</div>
+
+
+
+
+{% include footer.html %}
